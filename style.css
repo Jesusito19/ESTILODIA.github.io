@@ -1,0 +1,230 @@
+/* ========================
+   ESTILODÍA - IDENTIDAD VISUAL
+   ======================== */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #1a1a1a;
+    --text-light: #666666;
+    --accent: #2e5bff; /* Azul Eléctrico (Diferente a Ecomoda) */
+    --border: #e0e0e0;
+    
+    --font-serif: 'Playfair Display', serif; /* Títulos elegantes */
+    --font-sans: 'Lato', sans-serif;         /* Texto lectura */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* UTILIDADES */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.section-padding { padding: 80px 0; }
+
+/* 1. NAV EDITORIAL */
+.editorial-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--text-main);
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.brand .dot { color: var(--accent); font-size: 2.5rem; line-height: 0; }
+
+.menu-icon, .nav-icons i { font-size: 1.2rem; cursor: pointer; }
+.menu-icon:hover, .nav-icons i:hover { color: var(--accent); }
+.nav-icons { display: flex; gap: 20px; }
+
+/* Menú desplegable simple */
+.nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: none; /* Oculto por defecto */
+    text-align: center;
+    padding: 20px 0;
+}
+.nav-links.active { display: block; }
+.nav-links li { margin: 15px 0; }
+.nav-links a { font-family: var(--font-serif); font-size: 1.2rem; }
+.nav-links a:hover { color: var(--accent); font-style: italic; }
+
+/* 2. HERO SECTION */
+.hero-section {
+    height: 85vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content { max-width: 700px; padding: 0 20px; }
+
+.tag {
+    background: var(--accent);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+.hero-content h1 em { font-style: italic; font-weight: 400; }
+
+.btn-editorial {
+    display: inline-block;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 40px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    font-weight: 700;
+}
+.btn-editorial:hover { background: white; color: black; }
+
+/* 3. GRID ASIMÉTRICO (Estilo Revista) */
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 10px; }
+
+.asym-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: repeat(2, 300px);
+    gap: 20px;
+}
+
+.grid-item { position: relative; overflow: hidden; }
+.grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.grid-item:hover img { transform: scale(1.05); }
+
+/* Configuración de celdas */
+.large { grid-row: 1 / -1; /* Ocupa 2 filas */ }
+
+.item-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 15px;
+    max-width: 80%;
+}
+.item-info .cat { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; font-weight: 700; }
+.item-info h3 { font-family: var(--font-serif); font-size: 1.2rem; margin-top: 5px; }
+
+/* 4. QUOTE BREAK */
+.quote-break {
+    background: var(--text-main);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+.quote-break blockquote {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.quote-break cite {
+    display: block;
+    margin-top: 20px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-style: normal;
+    color: var(--accent);
+}
+
+/* 5. GUÍAS RÁPIDAS */
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+}
+
+.guide-card { padding-right: 20px; transition: transform 0.3s; }
+.guide-card:hover { transform: translateY(-5px); }
+
+.guide-card .number {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.guide-card h4 { font-size: 1.3rem; margin-bottom: 10px; }
+.read-more {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* 6. FOOTER */
+footer {
+    background: #f4f4f4;
+    padding: 60px 0 20px;
+    text-align: center;
+}
+footer .brand { font-size: 1.5rem; margin-bottom: 20px; display: block; }
+footer .socials { margin: 20px 0; }
+footer .socials a {
+    margin: 0 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 1px solid var(--text-main);
+    padding: 5px 10px;
+}
+footer .socials a:hover { background: var(--text-main); color: white; }
+.copyright { font-size: 0.8rem; color: var(--text-light); margin-top: 40px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 3rem; }
+    .asym-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .grid-item { height: 300px; }
+    .large { grid-row: auto; }
+}
